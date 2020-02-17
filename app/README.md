@@ -1,3 +1,13 @@
+##Important commands
+
+## Dockerize this app:
+### `docker build . -t react-docker`
+
+## Run this app with docker
+### `docker run -p 8000:80 react-docker`
+
+App can now be found at: http://localhost:8000/
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
