@@ -6,7 +6,7 @@ node {
     }
 
     stage('Build image'){
-        app = docker.build("app/reactdocker")
+        app = docker.build("/app/reactdocker")
     }
 
     stage('Test image'){
