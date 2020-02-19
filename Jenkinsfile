@@ -1,6 +1,5 @@
 node {
     def app
-    agent { docker 'alpine' }
     stage('Clone repository'){
         checkout scm
     }
