@@ -5,11 +5,6 @@ node {
     }
 
     stage('Build image'){
-        agent{
-            docker {
-                image 'getintodevops/jenkins-withdocker'
-            }
-        }
         app = docker.build("app/reactdocker")
     }
 
