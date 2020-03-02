@@ -5,7 +5,7 @@ node {
     }
 
     stage('Build image'){
-        app = docker.build("app/reactdocker")
+        app = docker.build("fabiuse/reactdocker")
     }
 
     stage('Test image'){
@@ -15,7 +15,7 @@ node {
     }
 
     stage('Push image'){
-        docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials'){
+        docker.withRegistry('','docker-hub-credentials'){
             app.push("latest")
         }
     }
