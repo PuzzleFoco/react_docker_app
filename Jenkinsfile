@@ -20,7 +20,9 @@ node {
         }
     }
 
-    kubernetes {
-        yamlFile 'reactymlfile.yml'
-    }   
+    stage('Deploy Container') {
+        kubernetes {
+            yamlFile 'reactymlfile.yml'
+        }
+    }
 }
