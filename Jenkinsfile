@@ -20,11 +20,14 @@ node {
         }
     }
 
-    stage ('Deploy') {
-        agent{
+    pipeline {
+        agent {
             kubernetes {
-            yaml "reactmlfile.yml"
+            yamlFile 'reactymlfile.yml'
             }
+        }
+        stages {
+            ...
         }
     }
 }
