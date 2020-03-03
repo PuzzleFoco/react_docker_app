@@ -19,4 +19,10 @@ node {
             app.push("latest")
         }
     }
+
+    stage('Deploy App'){
+        kubernetes {
+            yaml "reactmlfile.yml"
+        }
+    }
 }
