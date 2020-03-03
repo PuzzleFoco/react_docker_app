@@ -20,7 +20,7 @@ node {
         }
     }
 
-    pipeline {
+    state ('Deploy') {
         agent{
             kubernetes {
             yaml "reactmlfile.yml"
