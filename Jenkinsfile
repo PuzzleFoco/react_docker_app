@@ -20,9 +20,11 @@ node {
         }
     }
 
-    stage('Deploy App'){
-        kubernetes {
+    pipeline {
+        agent{
+            kubernetes {
             yaml "reactmlfile.yml"
+            }
         }
     }
 }
