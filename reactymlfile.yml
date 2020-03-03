@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
       - name: app
-        image: myreactregistry.azurecr.io/react-dock:v1
+        image: fabiuse/reactdocker:latest
         resources:
           limits:
             memory: "128Mi"
