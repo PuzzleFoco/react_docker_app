@@ -20,18 +20,7 @@ node {
         }
     }
 
-    agent {
-        kubernetes {
-            yamlFile 'reactymlfile.yml'
-        }
-    }
-    stages {
-        stage ('MyBuild') {
-            steps {
-                container('fabiuse/reactdocker'){
-                    sh 'doit'
-                }
-            }
-        }
-    }    
+    kubernetes {
+        yamlFile 'reactymlfile.yml'
+    }   
 }
