@@ -1,12 +1,4 @@
-pipeline {
-    agent {
-        kubernetes {
-            label 'jenkins-jenkins-slave'
-            defaultContainer 'jnlp'
-        }
-    }
-}
- {
+node {
     def app
     stage('Clone repository'){
         checkout scm
@@ -26,9 +18,14 @@ pipeline {
         docker.withRegistry('','docker-hub-credentials'){
             app.push("latest")
         }
-    } 
+    }
+
     
-    stage ('Deploy') {
-        sh 'echo kubectl get nodes'
-    }      
+    stage('Deploy') {
+        kubernetes {
+            steps {
+                sh 'echo kubectl get nodes'
+            }
+        }        
+    }    
 }
