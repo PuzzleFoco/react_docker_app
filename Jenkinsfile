@@ -20,16 +20,16 @@ node {
         }
     }
 
-    stage('Deploy Container') {
-        agent {
-            kubernetes {}
-        }
-        stages {
-            stage {
-                steps {
-                    sh 'echo kubectl get nodes'
-                }
+    
+    agent {
+        kubernetes {}
+    }
+    stages {
+        stage {
+            steps {
+                sh 'echo kubectl get nodes'
             }
         }
     }
+    
 }
