@@ -21,15 +21,11 @@ node {
     }
 
     
-    agent {
-        kubernetes {}
-    }
-    stages {
-        stage {
+    stage('Deploy') {
+        kubernetes {
             steps {
                 sh 'echo kubectl get nodes'
             }
-        }
-    }
-    
+        }        
+    }    
 }
