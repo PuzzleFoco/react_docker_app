@@ -22,7 +22,7 @@ node {
 
     
     stage('Deploy') {
-        withKubeConfig([credentialsId: '92de7d32-9148-4a51-89b8-e6c623002efd', serverUrl: 'https://kubernetes.default']){
+        {
             sh 'kubectl version'
         }
     }    
