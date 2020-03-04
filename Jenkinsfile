@@ -1,6 +1,8 @@
 pipeline {
     agent {
         kubernetes {
+            label 'jenkins-jenkins-slave'
+            defaultContainer 'jnlp'
             node {
                 def app
                 stage('Clone repository'){
