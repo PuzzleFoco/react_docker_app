@@ -21,54 +21,8 @@ node {
     }
 
     stage('Deploy Container') {
-        kubernetes{
-            yaml """
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: app
-spec:
-  selector:
-    matchLabels:
-      app: app
-  template:
-    metadata:
-      labels:
-        app: myapp
-    spec:
-      containers:
-      - name: app
-        image: fabiuse/reactdocker:latest
-        resources:
-          limits:
-            memory: "128Mi"
-            cpu: "500m"
-        ports:
-        - containerPort: 8080
-
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: app
-spec:
-  selector:
-    app: app
-  ports:
-  - port: 8080
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: app
-spec:
-  type: LoadBalancer
-  ports:
-  - port: 80
-  selector:
-    app: app
-
-            """
+        withCredentials([kubeconfigContent(credentialsId: 'd27203eb-2ac2-45b9-860e-4cc00c567e44', variable: 'KUBECONFIG_CONTENT')]) {
+            sh '''echo "$KUBECONFIG_CONTENT" > kubeconfig && cat kubeconfig && rm kubeconfig'''
         }
     }
 }
