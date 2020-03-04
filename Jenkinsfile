@@ -22,10 +22,8 @@ node {
 
     
     stage('Deploy') {
-        kubernetes {
-            steps {
-                sh 'echo kubectl get nodes'
-            }
-        }        
+        app.inside {
+            sh 'kubectl get nodes'
+        }
     }    
 }
