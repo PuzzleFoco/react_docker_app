@@ -18,14 +18,11 @@ node {
         docker.withRegistry('','docker-hub-credentials'){
             app.push("latest")
         }
-    }
-
+    } 
     
-    stage('Deploy') {
-        kubernetes {
-            steps {
-                sh 'echo kubectl get nodes'
-            }
-        }        
-    }    
+    kubernetes {
+        stage {
+            sh 'echo kubectl get nodes'
+        }
+    }        
 }
