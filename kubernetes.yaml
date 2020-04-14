@@ -43,7 +43,7 @@ metadata:
   namespace: default
 spec:
   rules:
-  - host: masterthesis.online
+  - host: www.masterthesis.online
     http: 
       paths:
       - backend:
@@ -52,5 +52,5 @@ spec:
         path: /
   tls:
   - hosts:
-    - masterthesis.online
+    - www.masterthesis.online
     secretName: testsecret-tls
